@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Profesional</title>
+    <link rel="stylesheet" href="Style.CSS">
+</head>
+<body>
+
+<header>
+    <nav>
+        <h2 class="logo">MiPerfil</h2>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+        <ul id="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre">Sobre mí</a></li>
+            <li><a href="#habilidades">Mis Habilidades</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section id="inicio" class="hero-section reveal">
+    <div class="hero-content">
+        <img src="Captura de pantalla 2026-02-20 145910.png" alt="foto perfil">
+        <h1>Hola, soy Christopher</h1>
+        <p>Estudiante | Futuro desarrollador web | Jugador de Chain | Jugador de Blox Fruit</p>
+        <div class="hero-buttons">
+            <a href="Docs/CV_Christopher.pdf" download class="btn-cv">Descargar CV</a>
+            <a href="#contacto" class="btn-contact">Contactarme</a>
+        </div>
+    </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section id="sobre" class="Section reveal">
+    <h2>Sobre mí</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Educación</h3>
+            <p>Estudiante en IPC (Instituto Privado Comayagua).</p>
+        </div>
+        <div class="card">
+            <h3>Intereses</h3>
+            <p>Programación, diseño, videojuegos, computadoras y tecnología.</p>
+        </div>
+        <div class="card">
+            <h3>Proyectos</h3>
+            <p>Mini juegos, calculadora (con Java) y páginas web interactivas.</p>
+        </div>
+    </div>
+</section>
+
+<!-- HABILIDADES -->
+<section id="habilidades" class="Section dark reveal">
+    <h2>Habilidades</h2>
+    <div class="Skills">
+        <div class="Skill">
+            <p>HTML</p>
+            <div class="bar"><div class="progress html"></div></div>
+        </div>
+        <div class="Skill">
+            <p>CSS</p>
+            <div class="bar"><div class="progress css"></div></div>
+        </div>
+        <div class="Skill">
+            <p>JavaScript</p>
+            <div class="bar"><div class="progress javascript"></div></div>
+        </div>
+        <div class="Skill">
+            <p>Python</p>
+            <div class="bar"><div class="progress python"></div></div>
+        </div>
+        <div class="Skill">
+            <p>Diseño</p>
+            <div class="bar"><div class="progress diseño"></div></div>
+        </div>
+        <div class="Skill">
+            <p>MySQL</p>
+            <div class="bar"><div class="progress mysql"></div></div>
+        </div>
+        <div class="Skill">
+            <p>Java</p>
+            <div class="bar"><div class="progress java"></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos" class="Section reveal">
+    <h2>Proyectos</h2>
+    <div class="project-grid">
+        <div class="project-card">
+            <h3>Interfaz Gratuita</h3>
+            <p>Desarrollado en VS code, con estructura HTML y estilo CSS.</p>
+            <a href="https://github.com/andinochistopher-hub/VScode-proyect" target="_blank">Ver código</a>
+        </div>
+        <div class="project-card">
+            <h3>Calculadora</h3>
+            <p>Desarrollada con Netbeans (IDE), usando el lenguage de Java.</p>
+            <a href="https://github.com/andinochistopher-hub/Calculator-Java-/tree/main" target="_blank">Ver código</a>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="Section reveal">
+    <h2>Contacto</h2>
+    <div class="contact-info">
+        <p>Email: christopher.andino@estudiante.institutocomayagua.net</p>
+        <p>Teléfono: +504 8984-0674</p>
+        <p>Instagram: @Chrisx_JAV</p>
+        <p>Facebook: @christopherAndino</p>
+        <p>Instagram: @Critano100</p>
+    </div>
+    <form action="https://formspree.io/f/xnjbgpbz" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="mensaje" placeholder="Mensaje" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+</section>
+
+<!-- SCRIPTS -->
+<script>
+// MENÚ HAMBURGUESA
+const toggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+toggle.addEventListener("click", () => { navLinks.classList.toggle("show"); });
+
+// NAVBAR ACTIVO AL SCROLL
+const sections = document.querySelectorAll("section");
+const navLi = document.querySelectorAll("nav ul li a");
+window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (pageYOffset >= sectionTop) { current = section.getAttribute("id"); }
+    });
+    navLi.forEach(a => { a.classList.remove("active"); if(a.getAttribute("href")==="#"+current){a.classList.add("active");} });
+});
+
+// ANIMACIÓN AL APARECER
+function revealOnScroll() {
+    const reveals = document.querySelectorAll(".reveal");
+    reveals.forEach(el => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        if (elementTop < windowHeight - 100) { el.classList.add("active"); }
+    });
+}
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+
+</script>
+
+</body>
+</html>
